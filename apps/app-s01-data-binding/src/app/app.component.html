@@ -1,0 +1,25 @@
+Data Binding
+
+<p>Text Interpolation / Interpolación de Cadenas</p>
+
+<span>{{ users }}</span><br>
+<span>{{ person.name }}</span><br>
+<span>{{ title }}</span><br>
+<span>{{ year }}</span><br>
+<span>{{ bool }}</span><br>
+
+<p>Property binding / Enlace de propiedades</p>
+
+<input type="checkbox" [checked]="bool">
+
+<input type="text" [value]="title">
+
+<p>Event binding / Enlace de eventos</p>
+
+<button (click)="buttonAction()" >Ejecutar Acción</button>
+
+<p>Two Way Data binding / Enlace bidireccional</p>
+
+<input type="text" [(ngModel)]="title" >
+<br>
+{{ title }}
