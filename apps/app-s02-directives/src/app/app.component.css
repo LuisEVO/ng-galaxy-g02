@@ -1,0 +1,13 @@
+.box {
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+}
+
+.active {
+  background-color: blue;
+}
+
+.menu-item {
+  border: 1px solid;
+}

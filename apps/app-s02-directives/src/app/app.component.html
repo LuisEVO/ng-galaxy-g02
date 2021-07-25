@@ -1,0 +1,87 @@
+<p>Directives</p>
+
+<p>Directiva de Atributo</p>
+<p>Ng Class</p>
+
+<button (click)="setActiveTrue()">Activar</button>
+<button (click)="setActiveFalse()">Desactivar</button>
+
+<div class="box" [ngClass]="{ active: active }">Caja 1</div>
+<div class="box" [class.active]="active">Caja 1</div>
+
+<div class="menu">
+  <div class="menu-item"
+    (click)="selectItem(1)"
+    [ngClass]="{ active: itemIdActive === 1 }">
+    Opcion 1
+  </div>
+  <div class="menu-item"
+    (click)="selectItem(2)"
+    [ngClass]="{ active: itemIdActive === 2 }">
+    Opcion 2
+  </div>
+</div>
+
+
+<p>Ng Style</p>
+
+<div class="box" [ngStyle]="{ 'background-color': 'red' }">Caja 1</div>
+<div class="box" [style.background-color]="'red'">Caja 1</div>
+
+<div class="menu">
+  <div class="menu-item"
+    (click)="selectItem(1)"
+    [ngStyle]="{ 'border-color': 'red' }">
+    Opcion 1
+  </div>
+  <div class="menu-item"
+    (click)="selectItem(2)"
+    [ngStyle]="{ 'border-color': 'blue', 'color': 'blue' }">
+    Opcion 2
+  </div>
+</div>
+
+
+
+<h3>Directiva de Atributo</h3>
+<p>ngIf / ng-container</p>
+
+<button (click)="setActiveTrue()">Activar</button>
+<button (click)="setActiveFalse()">Desactivar</button>
+
+<ng-container *ngIf="active">
+  <div>
+    Contenido condicional
+  </div>
+  <div>
+    Contenido condicional
+  </div>
+</ng-container>
+
+<p>ngFor</p>
+
+<ng-container *ngIf="active">
+  <ng-container *ngFor="let item of tasks; let i = index">
+    <div >
+      {{ i }} - {{ item }}
+    </div>
+    <hr>
+  </ng-container>
+</ng-container>
+
+
+<ng-container *ngFor="let item of students">
+  <ng-container [ngSwitch]="item.status">
+    <div *ngSwitchCase="'A'" >
+      {{ item.name }} - Activo
+    </div>
+    <div *ngSwitchCase="'I'">
+      {{ item.name }} - Inactivo
+    </div>
+    <div *ngSwitchDefault>
+      {{ item.name }} - Estado Desconocido
+    </div>
+  </ng-container>
+</ng-container>
+
+
