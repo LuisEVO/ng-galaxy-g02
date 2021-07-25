@@ -27,6 +27,20 @@ ng serve <Nombre de la aplicación> --port <Numero de puerto>
 ng serve <Nombre de la aplicación> -p <Numero de puerto>
 ```
 
+
+### Generar un componente
+
+```
+ng generate component <Nombre del componente>
+
+ng generate component <ruta>/<Nombre del componente>
+
+ng generate component <ruta>/<Nombre del componente> --project <nombre del proyecto>
+
+ng g c <Nombre del componente>
+```
+
+
 ### Instalar dependencias con npm
 
 ```

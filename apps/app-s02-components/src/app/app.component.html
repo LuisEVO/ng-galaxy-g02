@@ -1,0 +1,35 @@
+<app-side-nav-container>
+
+  <app-side-nav>
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+  </app-side-nav>
+
+
+  <app-header
+    title="Conocenos"
+    [options]="['link 1', 'Link 2']"
+    (optionClicked)="log($event)">
+  </app-header>
+
+  <app-title>
+    Inicio <i>(home {{ mainCount }})</i>
+  </app-title>
+
+  <button class="btn btn-sm" (click)="show = !show">Mostrar / ocultar</button>
+
+  <app-counter #counter [(count)]="mainCount"></app-counter>
+
+  <button class="btn btn-primary btn-sm" (click)="counter.add()" >Add</button>
+
+  <h1>{{ mainCount }}</h1>
+
+  <app-card></app-card>
+  <app-footer></app-footer>
+
+</app-side-nav-container>

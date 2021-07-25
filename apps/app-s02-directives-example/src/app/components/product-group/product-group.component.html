@@ -1,0 +1,17 @@
+<div class="row">
+  <h6>{{ productGroup.title }}</h6>
+
+  <div *ngFor="let product of productGroup.products" class="col-2">
+    <div class="card w-100">
+      <img [src]="product.img" alt="">
+      <h5>{{ product.name }}</h5>
+
+      <p *ngIf="product.price.before" >S/ {{ product.price.before }}</p>
+      <p *ngIf="product.price.beforeDiscount" >{{ product.price.beforeDiscount }}</p>
+      <p *ngIf="product.price.now" >{{ product.price.now }}</p>
+      <p *ngIf="product.price.promotion" >S/ {{ product.price.promotion }}</p>
+
+    </div>
+  </div>
+
+</div>

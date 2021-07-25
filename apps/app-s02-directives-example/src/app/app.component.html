@@ -4,45 +4,13 @@
     <ng-container [ngSwitch]="item.type">
       <img *ngSwitchCase="'banner'" class="w-100" [src]="item.data" alt="">
 
-      <div *ngSwitchCase="'spots'" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div
-            *ngFor="let spot of $any(item.data); let i = index"
-            class="carousel-item"
-            [ngClass]="{ active: i === 0 }">
-            <img [src]="spot" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+      <app-spots *ngSwitchCase="'spots'" [spots]="$any(item.data)" ></app-spots>
 
       <ng-container *ngSwitchCase="'products'" >
-
-        <div *ngFor="let productGroup of $any(item.data)" class="row">
-          <h6>{{ productGroup.title }}</h6>
-
-          <div *ngFor="let product of productGroup.products" class="col-2">
-            <div class="card w-100">
-              <img [src]="product.img" alt="">
-              <h5>{{ product.name }}</h5>
-
-              <p *ngIf="product.price.before" >S/ {{ product.price.before }}</p>
-              <p *ngIf="product.price.beforeDiscount" >{{ product.price.beforeDiscount }}</p>
-              <p *ngIf="product.price.now" >{{ product.price.now }}</p>
-              <p *ngIf="product.price.promotion" >S/ {{ product.price.promotion }}</p>
-
-            </div>
-          </div>
-
-        </div>
-
+        <app-product-group
+          *ngFor="let productGroup of $any(item.data)"
+          [productGroup]="productGroup" >
+        </app-product-group>
       </ng-container>
 
     </ng-container>
