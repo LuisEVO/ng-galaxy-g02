@@ -1,0 +1,71 @@
+<div class="container pt-4">
+
+  <app-accordion>
+    <app-accordion-item></app-accordion-item>
+    <app-accordion-item></app-accordion-item>
+    <app-accordion-item></app-accordion-item>
+  </app-accordion>
+
+  <hr>
+
+  <app-tab-group>
+    <app-tab #tab1 title="Inicio" [active]="true">
+      <p>Contenido 1</p>
+    </app-tab>
+    
+    <app-tab #tab2 title="Nosotros">
+      <p>Contenido 2</p>
+    </app-tab>
+  </app-tab-group>
+
+  <app-tab-group>
+    <app-tab #tab1 title="Nuestro Equipo"  [active]="true">
+      <p>Contenido 3</p>
+    </app-tab>
+    
+    <app-tab #tab2 title="Contactanos">
+      <p>Contenido 4</p>
+    </app-tab>
+
+    <app-tab #tab3 title="Perfil">
+      <p>Contenido 5</p>
+    </app-tab>
+  </app-tab-group>
+
+  <app-tab-group>
+    <app-tab title="Nuestro Equipo"  [active]="true">
+      <p>Contenido 3</p>
+    </app-tab>
+    <app-tab title="Nuestro Equipo"  >
+      <p>Contenido 3</p>
+    </app-tab>
+    <app-tab title="Nuestro Equipo"  >
+      <p>Contenido 3</p>
+    </app-tab>
+    
+    <app-tab title="Contactanos">
+      <p>Contenido 4</p>
+    </app-tab>
+
+    <app-tab title="Perfil">
+      <p>Contenido 5</p>
+    </app-tab>
+  </app-tab-group>
+
+  <hr>
+
+  <app-button></app-button>
+  <app-button [color]="btnColor"></app-button>
+  <app-button color="secondary" ></app-button>
+  <app-button color="danger"></app-button>
+  <app-button color="success"></app-button>
+
+  <hr>
+
+  <app-draggable-file (droppedFile)="addFile($event)" ></app-draggable-file>
+
+  <p *ngFor="let file of files">{{ file.name }}</p>
+
+  <div class="item">Hola Mundo</div>
+
+</div>

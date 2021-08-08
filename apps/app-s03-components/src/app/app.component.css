@@ -1,0 +1,7 @@
+.item {
+  background: blue;
+}
+
+app-draggable-file::ng-deep > .item {
+  background: blue;
+}

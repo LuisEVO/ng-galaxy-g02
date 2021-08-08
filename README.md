@@ -25,6 +25,8 @@ ng serve <Nombre de la aplicación>
 ng serve <Nombre de la aplicación> --port <Numero de puerto>
 
 ng serve <Nombre de la aplicación> -p <Numero de puerto>
+
+ng serve --project <Nombre de la apliación>
 ```
 
 
