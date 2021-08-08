@@ -1,7 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-accordion',
+  selector: 'glx-accordion',
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.css']
 })

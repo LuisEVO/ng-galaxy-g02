@@ -19,7 +19,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ui-components": [
+        "libs/ui-components/src/public-api.ts",
+      ],
+      "ui-components/*": [
+        "libs/ui-components/src/lib/*",
+      ],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

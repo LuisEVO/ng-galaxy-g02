@@ -2,7 +2,7 @@ import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetecto
 import { TabComponent } from './tab/tab.component';
 
 @Component({
-  selector: 'app-tab-group',
+  selector: 'glx-tab-group',
   templateUrl: './tab-group.component.html',
   styleUrls: ['./tab-group.component.css'],
   // changeDetection: ChangeDetectionStrategy.OnPush

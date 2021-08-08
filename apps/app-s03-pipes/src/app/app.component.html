@@ -1,0 +1,116 @@
+
+<img [src]="'logo.png' | pathLogos:'svg'" alt="">
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Valor</th>
+        <th>Pipe</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ title }}</td>
+        <td>uppercase</td>
+        <td>{{ title | uppercase }}</td>
+      </tr>
+      <tr>
+        <td>{{ title }}</td>
+        <td>lowercase</td>
+        <td>{{ title | lowercase }}</td>
+      </tr>
+      <tr>
+        <td>{{ title }}</td>
+        <td>titlecase</td>
+        <td>{{ title | titlecase }}</td>
+      </tr>
+      <tr>
+        <td>{{ paragarph }}</td>
+        <td>slice</td>
+        <td>{{ paragarph | slice:0:50 }}...</td>
+      </tr>
+
+      <tr>
+        <td>{{ tasks }}</td>
+        <td>slice</td>
+        <td>{{ tasks | slice:0:3 }}...</td>
+      </tr>
+
+      <tr *ngFor="let task of tasks | slice:1:4" >
+        <td></td>
+        <td></td>
+        <td>{{ task }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ price }}</td>
+        <td>number</td>
+        <td>{{ price | number:'.2-2' }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ price }}</td>
+        <td>currency</td>
+        <td>{{ price | currency:'S/ ':'':'.1-1' }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ progress }}</td>
+        <td>percent</td>
+        <td>{{ progress | percent }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ person }}</td>
+        <td>json</td>
+        <td>
+          <pre>{{ person | json }}</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{ today }}</td>
+        <td>date</td>
+        <td>
+          <pre>{{ today | date:'medium' | titlecase }}</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{ comments }}</td>
+        <td>i18nPlural</td>
+        <td>
+          <pre>{{ comments | i18nPlural:messageMapping }}</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td>{{ gender }}</td>
+        <td>i18nSelect</td>
+        <td>
+          <pre>{{ gender | i18nSelect:inviteMap }} {{ name }} </pre>
+        </td>
+      </tr>
+
+      <tr *ngFor="let item of object | keyvalue" >
+        <td></td>
+        <td></td>
+        <td>
+          {{ item.key }} - {{ item.value }}
+        </td>
+      </tr>
+
+      <tr *ngFor="let item of map | keyvalue" >
+        <td></td>
+        <td></td>
+        <td>
+          {{ item.key }} - {{ item.value }}
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>

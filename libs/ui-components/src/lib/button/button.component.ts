@@ -2,7 +2,7 @@ import { Component, HostBinding, HostListener, Input, OnChanges, OnInit, SimpleC
 import { ButtonColor } from './button.type';
 
 @Component({
-  selector: 'app-button',
+  selector: 'glx-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css']
 })

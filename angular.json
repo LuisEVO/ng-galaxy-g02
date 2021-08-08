@@ -499,6 +499,135 @@
           }
         }
       }
+    },
+    "ui-components": {
+      "projectType": "library",
+      "root": "libs/ui-components",
+      "sourceRoot": "libs/ui-components/src",
+      "prefix": "glx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libs/ui-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ui-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/ui-components/src/test.ts",
+            "tsConfig": "libs/ui-components/tsconfig.spec.json",
+            "karmaConfig": "libs/ui-components/karma.conf.js"
+          }
+        }
+      }
+    },
+    "app-s03-pipes": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "apps/app-s03-pipes",
+      "sourceRoot": "apps/app-s03-pipes/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-s03-pipes",
+            "index": "apps/app-s03-pipes/src/index.html",
+            "main": "apps/app-s03-pipes/src/main.ts",
+            "polyfills": "apps/app-s03-pipes/src/polyfills.ts",
+            "tsConfig": "apps/app-s03-pipes/tsconfig.app.json",
+            "assets": [
+              "apps/app-s03-pipes/src/favicon.ico",
+              "apps/app-s03-pipes/src/assets"
+            ],
+            "styles": [
+              "apps/app-s03-pipes/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/app-s03-pipes/src/environments/environment.ts",
+                  "with": "apps/app-s03-pipes/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-s03-pipes:build:production"
+            },
+            "development": {
+              "browserTarget": "app-s03-pipes:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-s03-pipes:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/app-s03-pipes/src/test.ts",
+            "polyfills": "apps/app-s03-pipes/src/polyfills.ts",
+            "tsConfig": "apps/app-s03-pipes/tsconfig.spec.json",
+            "karmaConfig": "apps/app-s03-pipes/karma.conf.js",
+            "assets": [
+              "apps/app-s03-pipes/src/favicon.ico",
+              "apps/app-s03-pipes/src/assets"
+            ],
+            "styles": [
+              "apps/app-s03-pipes/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "defaultProject": "app-s01-data-binding"

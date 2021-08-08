@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonColor } from './components/button/button.type';
+import { ButtonColor } from 'ui-components/button/button.type';
 
 @Component({
   selector: 'app-root',

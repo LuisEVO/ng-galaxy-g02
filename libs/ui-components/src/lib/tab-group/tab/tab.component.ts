@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tab',
+  selector: 'glx-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.css']
 })

@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostBinding, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-accordion-item',
+  selector: 'glx-accordion-item',
   templateUrl: './accordion-item.component.html',
   styleUrls: ['./accordion-item.component.css']
 })

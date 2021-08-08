@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostBinding, HostListener, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-draggable-file',
+  selector: 'glx-draggable-file',
   templateUrl: './draggable-file.component.html',
   styleUrls: ['./draggable-file.component.css'],
   encapsulation: ViewEncapsulation.Emulated
