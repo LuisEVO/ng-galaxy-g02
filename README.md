@@ -42,6 +42,10 @@ ng generate component <ruta>/<Nombre del componente> --project <nombre del proye
 ng g c <Nombre del componente>
 ```
 
+Generar un componente pagina y cambiarle la extensión para diferenciarlo (opcional):
+
+`ng g c <Nombre del componente> --type <extensión> --skip-selector`
+
 ### Generar un pipe
 
 ```
@@ -49,6 +53,31 @@ ng generate pipe <Nombre del pipe>
 
 ng g p <Nombre del pipe>
 ```
+
+### Generar un modulo Lazy Loading
+
+```
+ng g m <Nombre del modulo> --routing true
+ng g m <Ruta del module/Nombre del modulo> --routing true
+
+ng g m <Ruta del module/Nombre del modulo> --routing true --project <nombre de la aplicación>
+```
+
+### Generar un guard
+
+```
+ng g guard <Nombre del guardian> --implements CanActivate
+ng g guard <Ruta del module/Nombre del guardian> --implements CanActivateChild
+
+ng g guard <Ruta del module/Nombre del guardian> --project <nombre de la aplicación>
+```
+
+### Generar un resolver
+
+```
+ng g resolver <Ruta del resolver/Nombre del resolver> --project <nombre de la aplicación>
+```
+
 
 
 ### Instalar dependencias con npm

@@ -1,0 +1,14 @@
+<div class="container pt-5">
+
+  <div class="row">
+    <div *ngFor="let item of workshops" class="col-6 col-md-4 mb-2">
+      <glx-card>
+        <img [src]="item.img" [alt]="item.title">
+        <glx-card-body>
+          <h3 class="card-title" [routerLink]="['/talleres', item.id]">{{ item.title }}</h3>
+        </glx-card-body>
+      </glx-card>
+    </div>
+  </div>
+
+</div>

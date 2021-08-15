@@ -6,6 +6,8 @@ import { DraggableFileComponent } from './draggable-file/draggable-file.componen
 import { TabGroupComponent } from './tab-group/tab-group.component';
 import { TabComponent } from './tab-group/tab/tab.component';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from './card/card.component';
+import { CardBodyComponent } from './card/card-body/card-body.component';
 
 const COMPONENTS = [
   AccordionComponent,
@@ -13,7 +15,9 @@ const COMPONENTS = [
   ButtonComponent,
   DraggableFileComponent,
   TabGroupComponent,
-  TabComponent
+  TabComponent,
+  CardComponent,
+  CardBodyComponent
 ]
 
 @NgModule({

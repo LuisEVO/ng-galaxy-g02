@@ -628,6 +628,109 @@
           }
         }
       }
+    },
+    "app-s04-routes": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "apps/app-s04-routes",
+      "sourceRoot": "apps/app-s04-routes/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-s04-routes",
+            "index": "apps/app-s04-routes/src/index.html",
+            "main": "apps/app-s04-routes/src/main.ts",
+            "polyfills": "apps/app-s04-routes/src/polyfills.ts",
+            "tsConfig": "apps/app-s04-routes/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/app-s04-routes/src/favicon.ico",
+              "apps/app-s04-routes/src/assets"
+            ],
+            "styles": [
+              "apps/app-s04-routes/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/app-s04-routes/src/environments/environment.ts",
+                  "with": "apps/app-s04-routes/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-s04-routes:build:production"
+            },
+            "development": {
+              "browserTarget": "app-s04-routes:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-s04-routes:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/app-s04-routes/src/test.ts",
+            "polyfills": "apps/app-s04-routes/src/polyfills.ts",
+            "tsConfig": "apps/app-s04-routes/tsconfig.spec.json",
+            "karmaConfig": "apps/app-s04-routes/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/app-s04-routes/src/favicon.ico",
+              "apps/app-s04-routes/src/assets"
+            ],
+            "styles": [
+              "apps/app-s04-routes/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "defaultProject": "app-s01-data-binding"
