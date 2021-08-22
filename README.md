@@ -78,7 +78,19 @@ ng g guard <Ruta del module/Nombre del guardian> --project <nombre de la aplicac
 ng g resolver <Ruta del resolver/Nombre del resolver> --project <nombre de la aplicación>
 ```
 
+### Generar un servicio
 
+```
+ng generate service <Nombre del servicio>
+ng g s <Nombre del servicio>
+```
+
+### Generar un interceptor
+
+```
+ng generate interceptor <Nombre del interceptor>
+ng g interceptor <Nombre del interceptor>
+```
 
 ### Instalar dependencias con npm
 
@@ -150,4 +162,34 @@ providers: [
   }
 ],
 
+```
+
+
+## Instalar mock
+
+Instalar json server
+
+`npm install --save-dev json-server`
+
+Crear una carpeta en la ruta raiz `mock` y crear dentro un `db.json`
+
+Agregar el siguiente script en el archivo `package.json`
+
+```
+"mock": "json-server mock/db.json --watch"
+```
+
+para ejecutar
+
+```
+npm run mock
+```
+
+
+## Testting
+
+```
+ng test
+ng test <Nombre del proyecto>
+ng test --code-coverage <Nombre del proyecto>
 ```

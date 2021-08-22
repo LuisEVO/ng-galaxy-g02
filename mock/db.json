@@ -1,0 +1,21 @@
+{
+  "workshops": [
+    {
+      "img": "https://online.galaxy.edu.pe/175-home_default/especializacion-java-web-developer.jpg",
+      "title": "Especialización JAVA WEB DEVELOPER",
+      "id": 2
+    },
+    {
+      "img": "https://online.galaxy.edu.pe/175-home_default/especializacion-java-web-developer.jpg",
+      "title": "Especialización JAVA WEB DEVELOPER",
+      "id": 3
+    }
+  ],
+  "tasks": [
+    {
+      "title": "angular 12",
+      "completed": true,
+      "id": 1
+    }
+  ]
+}

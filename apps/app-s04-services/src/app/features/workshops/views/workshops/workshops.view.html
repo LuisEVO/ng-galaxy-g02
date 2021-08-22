@@ -1,0 +1,19 @@
+<div class="container pt-5">
+
+  <glx-button class="mb-2" routerLink="./nuevo" >Nuevo</glx-button>
+
+  <div class="row">
+    <div *ngFor="let item of workshops" class="col-6 col-md-4 mb-2">
+      <glx-card>
+        <img [src]="item.img" [alt]="item.title">
+        <glx-card-body>
+          <h3 class="card-title" (click)="goDetail(item)">{{ item.title }}</h3>
+          <glx-button class="mb-2" [routerLink]="['./editar', item.id]" >Editar</glx-button>
+          <glx-button color="danger" class="mb-2" (click)="remove(item.id)" >Eliminar</glx-button>
+
+        </glx-card-body>
+      </glx-card>
+    </div>
+  </div>
+
+</div>
