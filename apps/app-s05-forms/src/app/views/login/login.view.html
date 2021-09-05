@@ -1,0 +1,37 @@
+<form autocomplete="off" #form="ngForm" (ngSubmit)="save(form)" class="container pt-3">
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="email" class="form-control"
+      name="email"
+      ngModel
+      required
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+      appEmail
+      #emailField="ngModel" >
+    <ng-container *ngIf="emailField.touched || emailField.dirty" >
+      <div *ngIf="emailField.errors?.required" >
+        Este campo es requerido
+      </div>
+      <div *ngIf="emailField.errors?.pattern" >
+        Ingrese un formato correcto
+      </div>
+      <div *ngIf="emailField.errors?.emailFormat" >
+        Formato Incorrecto desde la directiva
+      </div>
+    </ng-container>
+
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" minlength="10" [ngModel]="data.password">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" name="active" [ngModel]="data.active">
+    <label class="form-check-label">Mantener activo</label>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid" >Submit</button>
+</form>
+
+<pre>
+  {{ form.value | json }}
+</pre>

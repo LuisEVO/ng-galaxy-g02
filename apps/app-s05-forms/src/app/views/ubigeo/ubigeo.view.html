@@ -1,0 +1,14 @@
+
+<div class="container pt-4">
+  <form [formGroup]="form">
+    <select formControlName="departamento">
+      <option *ngFor="let departamento of departamentos" [value]="departamento.id_ubigeo">{{ departamento.nombre_ubigeo }}</option>
+    </select> <br>
+    <select formControlName="provincia">
+      <option *ngFor="let provincia of provincias" [value]="provincia.id_ubigeo">{{ provincia.nombre_ubigeo }}</option>
+    </select> <br>
+    <select formControlName="distrito"></select> <br>
+  </form>
+</div>
+
+<pre>{{ form.value | json }}</pre>

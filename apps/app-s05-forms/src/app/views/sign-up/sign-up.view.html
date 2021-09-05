@@ -1,0 +1,89 @@
+<form [formGroup]="signInForm" (ngSubmit)="save()" class="container pt-4">
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" formControlName="email">
+    <div *ngIf="signInForm.controls.email.errors?.required">
+      Este campo es requerido
+    </div>
+    <div *ngIf="signInForm.get('email')?.errors?.required">
+      Este campo es requerido
+    </div>
+    <div *ngIf="signInForm.get('email')?.hasError('required')">
+      Este campo es requerido
+    </div>
+    <div *ngIf="emailField.hasError('required') && emailField.touched">
+      Este campo es requerido
+    </div>
+    <div *ngIf="emailField.hasError('emailFormat')">
+      Ingrese un formato correcto
+    </div>
+    <div>
+      {{ emailField.value?.length }}/50
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Contraseña</label>
+    <input type="password"  autocomplete="off" class="form-control" formControlName="password">
+    <div *ngIf="passField.hasError('range')">
+      {{ passField.getError('range') }}
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Confirmar contraseña</label>
+    <input type="password" autocomplete="off" class="form-control" formControlName="confirmPassword">
+    <div *ngIf="confirmPassField.hasError('equals')">
+      Las contraseñas no coinciden
+    </div>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Activo</label>
+  </div>
+
+
+  <div formArrayName="phones" >
+    <div *ngFor="let phoneControl of phonesField.controls; let i = index" class="mb-3">
+      <label class="form-label">Telefono</label>
+      <input type="number" class="form-control" [formControl]="$any(phoneControl)">
+      <button type="button" class="mb-3 btn btn-sm btn-danger" (click)="removePhone(i)">x</button>
+      <div *ngIf="phoneControl.hasError('min')">
+        Ingrese un numero superior
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="mb-3 btn btn-sm btn-info" (click)="addPhone()">+ Agregar telefono</button>
+
+  <div class="mb-3">
+    <label class="form-label">Foto</label>
+    <app-input-file formControlName="photo"></app-input-file>
+    <div *ngIf="photoField.hasError('extension')">
+      {{ photoField.getError('extension') }}
+    </div>
+  </div>
+
+  
+  <div class="mb-3">
+    <label class="form-label">Foto</label>
+    <select formControlName="option">
+      <option value="a">1</option>
+      <option value="b">2</option>
+      <option value="c">3</option>
+      <option value="d">4</option>
+      <option value="e">5</option>
+    </select>
+    <div *ngIf="photoField.hasError('extension')">
+      {{ photoField.getError('extension') }}
+    </div>
+  </div>
+
+
+
+  <div >
+    <button type="submit" class="btn btn-primary"  >Submit</button>
+  </div>
+</form>
+
+<pre>
+  {{ signInForm.value | json }}
+</pre>

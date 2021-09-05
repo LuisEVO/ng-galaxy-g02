@@ -30,6 +30,7 @@
               "apps/app-s01-data-binding/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/app-s01-data-binding/src/styles.css"
             ],
             "scripts": []
@@ -97,6 +98,7 @@
               "apps/app-s01-data-binding/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/app-s01-data-binding/src/styles.css"
             ],
             "scripts": []
@@ -935,6 +937,217 @@
             ],
             "styles": [
               "apps/app-w01-testing/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "app-s05-forms": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "apps/app-s05-forms",
+      "sourceRoot": "apps/app-s05-forms/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-s05-forms",
+            "index": "apps/app-s05-forms/src/index.html",
+            "main": "apps/app-s05-forms/src/main.ts",
+            "polyfills": "apps/app-s05-forms/src/polyfills.ts",
+            "tsConfig": "apps/app-s05-forms/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/app-s05-forms/src/favicon.ico",
+              "apps/app-s05-forms/src/assets"
+            ],
+            "styles": [
+              "apps/app-s05-forms/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/app-s05-forms/src/environments/environment.ts",
+                  "with": "apps/app-s05-forms/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-s05-forms:build:production"
+            },
+            "development": {
+              "browserTarget": "app-s05-forms:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-s05-forms:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/app-s05-forms/src/test.ts",
+            "polyfills": "apps/app-s05-forms/src/polyfills.ts",
+            "tsConfig": "apps/app-s05-forms/tsconfig.spec.json",
+            "karmaConfig": "apps/app-s05-forms/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/app-s05-forms/src/favicon.ico",
+              "apps/app-s05-forms/src/assets"
+            ],
+            "styles": [
+              "apps/app-s05-forms/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "app-project-courses": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/app-project-courses",
+      "sourceRoot": "projects/app-project-courses/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-project-courses",
+            "index": "projects/app-project-courses/src/index.html",
+            "main": "projects/app-project-courses/src/main.ts",
+            "polyfills": "projects/app-project-courses/src/polyfills.ts",
+            "tsConfig": "projects/app-project-courses/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-courses/src/favicon.ico",
+              "projects/app-project-courses/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-courses/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-project-courses/src/environments/environment.ts",
+                  "with": "projects/app-project-courses/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "app-project-courses:build:production"
+            },
+            "development": {
+              "browserTarget": "app-project-courses:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-project-courses:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-project-courses/src/test.ts",
+            "polyfills": "projects/app-project-courses/src/polyfills.ts",
+            "tsConfig": "projects/app-project-courses/tsconfig.spec.json",
+            "karmaConfig": "projects/app-project-courses/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-courses/src/favicon.ico",
+              "projects/app-project-courses/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-courses/src/styles.scss"
             ],
             "scripts": []
           }
