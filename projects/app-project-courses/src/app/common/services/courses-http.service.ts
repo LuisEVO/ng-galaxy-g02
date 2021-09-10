@@ -13,7 +13,7 @@ export class CoursesHttpService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Paginable<Course>> {
-    return this.http.get<Paginable<CourseInterface>>('api/courses')
+    return this.http.get<Paginable<CourseInterface>>('https://lvilcarrapi.herokuapp.com/courses/')
       .pipe(
         map(res => {
           return ({

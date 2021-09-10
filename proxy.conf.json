@@ -1,6 +1,0 @@
-{
-  "/api": {
-    "target": "https://lvilcarrapi.herokuapp.com",
-    "secure": false
-  }
-}
