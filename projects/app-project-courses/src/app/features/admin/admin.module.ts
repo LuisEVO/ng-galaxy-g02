@@ -4,29 +4,22 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
-
 import { CoursesListView } from './views/courses-list/courses-list.view';
+import { CourseCreateView } from './views/course-create/course-create.view';
+import { CourseUpdateView } from './views/course-update/course-update.view';
+import { AdminCommonModule } from './common/common.module';
 
 @NgModule({
   declarations: [
     AdminComponent,
-    CoursesListView
+    CoursesListView,
+    CourseCreateView,
+    CourseUpdateView
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatTableModule
+    AdminCommonModule,
   ]
 })
 export class AdminModule { }

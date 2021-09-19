@@ -1,13 +1,16 @@
 export interface CourseInterface {
   id: number;
-  frequency: string[]; // Lunes, Martes, Miercoles
-  level: []; // basico, intermedio, avanzado
+  frequency: number[]; // Lunes, Martes, Miercoles
+  level: number[]; // basico, intermedio, avanzado
   name: string;
   description: string;
+  hours: number;
+  sessions: number;
+  workshops: number;
   price: number;
-  start_date: Date;
-  start_time: string;
-  end_time: string;
+  startDate: Date;
+  startTime: string;
+  endTime: string;
   cover: string;
   temary: string;
 }

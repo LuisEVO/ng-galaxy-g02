@@ -7,7 +7,7 @@ import { CoursesHttpService } from 'projects/app-project-courses/src/app/common/
   styleUrls: ['./courses-list.view.scss']
 })
 export class CoursesListView implements OnInit {
-  displayedColumns = ['title', 'subtitle', 'actions'];
+  displayedColumns = ['title', 'frequency', 'level', 'startDate', 'schedule', 'actions'];
   dataSource: Course[] = [];
 
   constructor(

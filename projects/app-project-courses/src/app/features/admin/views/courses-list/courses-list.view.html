@@ -1,5 +1,5 @@
 <div class="mb-3">
-  <button mat-raised-button color="primary" >
+  <button mat-raised-button color="primary" routerLink="./nuevo" >
     <mat-icon>add</mat-icon>
     Nuevo
   </button>
@@ -12,10 +12,27 @@
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="subtitle">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  <ng-container matColumnDef="frequency">
+    <th mat-header-cell *matHeaderCellDef> Frecuencia </th>
+    <td mat-cell *matCellDef="let element"> {{element.frequencyText}} </td>
   </ng-container>
+
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef> Nivel </th>
+    <td mat-cell *matCellDef="let element"> {{element.levelText}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="startDate">
+    <th mat-header-cell *matHeaderCellDef> Inicia </th>
+    <td mat-cell *matCellDef="let element"> {{element.startDateFormat}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="schedule">
+    <th mat-header-cell *matHeaderCellDef> Horario </th>
+    <td mat-cell *matCellDef="let element"> {{element.schedule}} </td>
+  </ng-container>
+
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Acciones </th>

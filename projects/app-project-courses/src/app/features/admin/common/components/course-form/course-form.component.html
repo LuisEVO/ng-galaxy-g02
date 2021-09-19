@@ -1,0 +1,77 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-card class="mat-elevation-z2">
+    <h1>Nuevo Curso</h1>
+    <mat-card-content>
+      <div class="grid grid-cols-3 gap-2">
+        <mat-form-field appearance="outline" (click)="picker.open()">
+          <mat-label>Inicio</mat-label>
+          <input matInput [matDatepicker]="picker" readonly formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Empieza</mat-label>
+          <input matInput [ngxTimepicker]="pickerStart" readonly formControlName="startTime">
+          <ngx-material-timepicker #pickerStart [appendToInput]="true"></ngx-material-timepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Termina</mat-label>
+          <input matInput [ngxTimepicker]="pickerEnd" readonly formControlName="endTime">
+          <ngx-material-timepicker #pickerEnd [appendToInput]="true"></ngx-material-timepicker>
+        </mat-form-field>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <input matInput mask="0*.00" formControlName="price">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput rows="5" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <div class="grid grid-cols-3 gap-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Cantidad de Horas</mat-label>
+          <input matInput mask="0*" formControlName="hours">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cantidad de Sessiones</mat-label>
+          <input matInput mask="0*" formControlName="sessions">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cantidad de Talleres</mat-label>
+          <input matInput mask="0*" formControlName="workshops">
+        </mat-form-field>
+      </div>
+
+      <div formArrayName="frequency" class="mb-3">
+        <h3>Frecuencia</h3>
+        <div class="flex gap-3">
+          <ng-container *ngFor="let day of weekDays; let i = index" [formGroupName]="i">
+            <mat-checkbox formControlName="active" >{{ day.value }}</mat-checkbox>
+          </ng-container>
+        </div>
+      </div>
+      
+      <div formArrayName="level">
+        <h3>Nivel</h3>
+        <div class="flex gap-3">
+          <ng-container *ngFor="let level of levels; let i = index" [formGroupName]="i">
+            <mat-checkbox formControlName="active">{{ level.value }}</mat-checkbox>
+          </ng-container>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="w-full">Guardar</button>
+    </mat-card-actions>
+  </mat-card>
+
+</form>
