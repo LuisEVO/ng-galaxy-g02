@@ -1,0 +1,9 @@
+<button mat-icon-button (click)="inputFile.click()">
+  <mat-icon>upload</mat-icon>
+</button>
+<a class="text-blue-500" *ngIf="url; else withoudUrl" [href]="url" target="blank">{{ labelDisplay }}</a>
+<ng-template #withoudUrl >
+  <span>{{ labelDisplay }}</span>
+</ng-template>
+
+<input #inputFile class="hidden" type="file" [accept]="accept" (change)="setFile($event)">

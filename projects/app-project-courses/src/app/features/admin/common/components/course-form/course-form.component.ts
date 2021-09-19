@@ -1,16 +1,18 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { LEVELS } from 'projects/app-project-courses/src/app/common/constants/levels.constant';
 import { WEEK_DAYS } from 'projects/app-project-courses/src/app/common/constants/week-days.constant';
 import { CourseInterface } from 'projects/app-project-courses/src/app/common/interfaces/course.interface';
+import { Course } from 'projects/app-project-courses/src/app/common/models/course.model';
 
 @Component({
   selector: 'app-course-form',
   templateUrl: './course-form.component.html',
   styleUrls: ['./course-form.component.scss']
 })
-export class CourseFormComponent implements OnInit {
+export class CourseFormComponent implements OnInit, OnChanges {
+  @Input() course?: Course;
   @Output() save: EventEmitter<Partial<CourseInterface>> = new EventEmitter();
 
   weekDays = WEEK_DAYS;
@@ -65,6 +67,31 @@ export class CourseFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.course);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes?.course?.currentValue) {
+      this.patchForm();
+    }
+  }
+
+  patchForm() {
+    if (this.course) {
+      this.form.patchValue({
+        name: this.course.name,
+        description: this.course.description,
+        price: this.course.price,
+        startDate: moment(this.course.startDate, 'YYYY-MM-DD').toISOString(),
+        startTime: this.course.startTimeFormat,
+        endTime: this.course.endTimeFormat,
+        hours: this.course.hours,
+        sessions: this.course.sessions,
+        workshops: this.course.workshops,
+        frequency: this.weekDays.map(day => ({ id: day.id, active: this.course?.frequency.includes(day.id) })),
+        level: this.levels.map(level => ({ id: level.id, active: this.course?.level.includes(level.id) }))
+      })
+    }
   }
 
   submit() {

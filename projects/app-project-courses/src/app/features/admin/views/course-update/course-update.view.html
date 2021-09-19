@@ -1,1 +1,16 @@
-<p>course-update works!</p>
+<div class="mb-3">
+  <button mat-raised-button routerLink="../../" >
+    <mat-icon>arrow_back</mat-icon>
+    Regresar
+  </button>
+</div>
+<app-course-form
+  [course]="course"
+  (save)="update($event)">
+</app-course-form>
+
+<app-course-files-form
+  [course]="course"
+  (saveCover)="updateCover($event)"
+  (saveTemary)="updateTemary($event)">
+</app-course-files-form>

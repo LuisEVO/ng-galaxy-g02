@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+  <mat-card>
+    <mat-card-content class="grid grid-cols-1" >
+      <div>
+        <h3>Imagen de Portada: </h3>
+        <app-input-file
+          formControlName="cover"
+          accept="image/*"
+          [url]="course?.cover"
+          [label]="course?.coverName || 'Seleccione una imagen'"></app-input-file>
+        <div class="text-red-500" *ngIf="coverControl.hasError('extensions') && coverControl.touched">
+          {{ coverControl.getError('extensions') }}
+        </div>
+      </div>
+      <div>
+        <h3>Temario: </h3>
+        <app-input-file
+          formControlName="temary"
+          accept="application/pdf"
+          [url]="course?.temary"
+          [label]="course?.temaryName || 'Seleccione un documento'"></app-input-file>
+        <div class="text-red-500" *ngIf="temaryControl.hasError('extensions') && temaryControl.touched">
+          {{ temaryControl.getError('extensions') }}
+        </div>
+      </div>
+      
+    </mat-card-content>  
+  </mat-card>
+
+</form>

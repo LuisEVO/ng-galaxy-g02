@@ -17,6 +17,11 @@ const LEVELS: Map<number, string> = new Map([
   [3, 'Avanzado'],
 ]);
 
+const getFileNameFromUrl = (fileName: string): string => {
+  const parts = fileName.split('/');
+  return parts[parts.length - 1];
+}
+
 export class Course {
   id: number;
   frequency: number[];
@@ -33,6 +38,14 @@ export class Course {
   cover: string;
   temary: string;
 
+  get coverName(): string {
+    return this.cover ? getFileNameFromUrl(this.cover) : '';
+  }
+
+  get temaryName(): string {
+    return this.temary ? getFileNameFromUrl(this.temary) : '';
+  }
+
   get frequencyText(): string {
     return this.frequency.map(frecuency => WEEL_DAYS.get(frecuency)!).join(', ')
   }
@@ -45,8 +58,16 @@ export class Course {
     return moment(this.startDate, 'YYYY-MM-DD').format('DD/MM/YYYY'); 
   }
 
+  get startTimeFormat(): string {
+    return moment(this.startTime, 'HH-mm-ss').format('hh:mm a'); 
+  }
+
+  get endTimeFormat(): string {
+    return moment(this.endTime, 'HH-mm-ss').format('hh:mm a'); 
+  }
+
   get schedule(): string {
-    return `${moment(this.startTime, 'HH-mm-ss').format('hh:mm a')} - ${moment(this.endTime, 'HH-mm-ss').format('hh:mm a')}`; 
+    return `${this.startTimeFormat} - ${this.endTimeFormat}`; 
   }
 
   constructor(data: CourseInterface) {

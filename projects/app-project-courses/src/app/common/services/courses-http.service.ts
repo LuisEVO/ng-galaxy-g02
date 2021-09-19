@@ -27,6 +27,13 @@ export class CoursesHttpService {
       )
   }
 
+  getOne(id: number): Observable<Course> {
+    return this.http.get<CourseInterface>(`${this.endpoint}${id}/`)
+      .pipe(
+        map(res => new Course(res))
+      )
+  }
+
   create(body: Partial<CourseInterface>): Observable<Course> {
     return this.http.post<CourseInterface>(this.endpoint, body)
       .pipe(map(res => new Course(res)))
@@ -35,6 +42,22 @@ export class CoursesHttpService {
   update(id: number, body: Partial<CourseInterface>): Observable<Course> {
     return this.http.put<CourseInterface>(`${this.endpoint}${id}/`, body)
       .pipe(map(res => new Course(res)))
+  }
+
+  updateCover(id: number, file: File): Observable<string> {
+    const body = new FormData();
+    body.append('cover', file)
+
+    return this.http.put<{ cover: string }>(`${this.endpoint}cover/${id}/`, body)
+      .pipe(map(res => res.cover))
+  }
+
+  updateTemary(id: number, file: File): Observable<string> {
+    const body = new FormData();
+    body.append('temary', file)
+
+    return this.http.put<{ temary: string }>(`${this.endpoint}temary/${id}/`, body)
+      .pipe(map(res => res.temary))
   }
 
   remove(id: number): Observable<void> {
