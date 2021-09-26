@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { environment } from '../environments/environment';
+import { AuthModule } from './features/auth/auth.module';
+import { AppErrorInterceptorModule } from './common/interceptors/auth-interceptor/auth-interceptor.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxsModule.forRoot([], { developmentMode: !environment.production }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    AuthModule,
+    AppErrorInterceptorModule
   ],
   providers: [
     {

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'projects/app-project-courses/src/environments/environment';
 import { Observable } from 'rxjs';
@@ -15,8 +15,17 @@ export class CoursesHttpService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Paginable<Course>> {
-    return this.http.get<Paginable<CourseInterface>>(this.endpoint)
+  getAll(page: number, pageSize: number, ordering: string, search: string): Observable<Paginable<Course>> {
+    const params = new HttpParams({
+      fromObject: {
+        page,
+        page_size: pageSize,
+        ordering,
+        search
+      }
+    })
+
+    return this.http.get<Paginable<CourseInterface>>(this.endpoint, { params } )
       .pipe(
         map(res => {
           return ({

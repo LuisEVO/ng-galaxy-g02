@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="signInSubmit()">
+  <mat-card>
+    <h1>Ingresar</h1>
+    <mat-card-content>
+      <mat-form-field class="w-full">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="username">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+        <button matSuffix mat-icon-button (click)="showPassword = !showPassword">
+          <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="accent" class="w-full">Ingresar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -13,6 +13,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   exports: [
@@ -27,6 +29,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     MatCardModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatPaginatorModule,
+    MatSortModule,
 
     // Al habilitar Datepicker, tambien habilitar NativeDateModule
     MatDatepickerModule,

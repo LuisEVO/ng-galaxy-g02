@@ -24,7 +24,8 @@ import { AppInputFileModule } from 'projects/app-project-courses/src/app/common/
   exports: [
     CourseFormComponent,
     CourseFilesFormComponent,
-    AdminMaterialModule
+    AdminMaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminComponentsModule { }
