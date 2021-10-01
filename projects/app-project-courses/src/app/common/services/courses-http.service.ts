@@ -15,7 +15,12 @@ export class CoursesHttpService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(page: number, pageSize: number, ordering: string, search: string): Observable<Paginable<Course>> {
+  getAll(
+    page: number = 1,
+    pageSize: number = 10,
+    ordering: string = '',
+    search: string = ''
+  ): Observable<Paginable<Course>> {
     const params = new HttpParams({
       fromObject: {
         page,
