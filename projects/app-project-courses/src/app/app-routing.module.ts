@@ -4,8 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'cursos',
     pathMatch: 'full'
+  },
+  {
+    path: '',
+    loadChildren: () => import('./features/portal/portal.module').then(m => m.PortalModule)
   },
   {
     path: '',

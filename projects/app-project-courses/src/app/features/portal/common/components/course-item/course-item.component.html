@@ -1,0 +1,18 @@
+<mat-card class="p-0 flex flex-col text-center">
+  <img [src]="course.cover" alt="" style="height: 243px; width: 243px;">
+  <mat-card-content class="p-2 mb-0 flex flex-col flex-grow items-center justify-between">
+    <p>{{ course.name }}</p>
+    <div>
+      <p class="font-bold">S/ {{ course.price }}</p>
+      <mat-chip-list>
+        <mat-chip color="primary" selected>Inicio: {{ course.startDateFormat }}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="h-16">
+    <button mat-button class="w-10/12" color="accent" (click)="goDetail.emit()">
+      <span>VER MAS</span>
+      <mat-icon class="ml-2">arrow_forward_ios</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

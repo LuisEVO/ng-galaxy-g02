@@ -1,0 +1,6 @@
+<ng-container *ngIf="loading; else loaded">
+  <app-course-detail-skeleton></app-course-detail-skeleton>
+</ng-container>
+<ng-template #loaded>
+  <app-course-detail [course]="course!"></app-course-detail>
+</ng-template>
