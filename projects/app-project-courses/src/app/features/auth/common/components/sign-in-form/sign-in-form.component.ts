@@ -15,8 +15,8 @@ export class SignInFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
-      username: [null, [Validators.required, AppValidators.email]],
-      password: [null, Validators.required]
+      username: ['admin@galaxy.com', [Validators.required, AppValidators.email]],
+      password: ['root1234.', Validators.required]
     })
   }
 

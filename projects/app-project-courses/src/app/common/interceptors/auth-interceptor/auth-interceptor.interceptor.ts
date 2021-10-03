@@ -8,9 +8,11 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SessionService } from '../../services/session.service';
+import { AuthHttpService } from '../../services/auth-http.service';
+import { Router } from '@angular/router';
 
 const errorMessage: Map<number, string> = new Map([
   [401, 'Usted no está autorizado'],
@@ -18,13 +20,16 @@ const errorMessage: Map<number, string> = new Map([
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  refreshing = false;
 
   constructor(
     private snackbar: MatSnackBar,
-    private session: SessionService
+    private session: SessionService,
+    private authHttp: AuthHttpService,
+    private router: Router,
   ) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  getRequest(request: HttpRequest<unknown>) {
     let opts = {};
     if (request.method !== 'GET') {
       opts = {
@@ -34,11 +39,30 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     }
     
-    const req = request.clone(opts)
-    
-    return next.handle(req)
+    return request.clone(opts)
+  }
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    return next.handle(this.getRequest(request))
     .pipe(
       catchError((err: HttpErrorResponse) => {
+
+        if (!this.refreshing && err.status === 401) {
+          this.refreshing = true;
+          return this.authHttp.refreshToken(this.session.refreshToken)
+          .pipe(
+            switchMap(() => {
+              this.refreshing = false;
+              return next.handle(this.getRequest(request))
+            }),
+            catchError(err => {
+              this.session.destroy();
+              this.router.navigateByUrl('/login');
+              this.refreshing = false;
+              return throwError(err);
+            })
+          )
+        }
 
         const message = errorMessage.get(err.status) || 'Error en el servidor';
 

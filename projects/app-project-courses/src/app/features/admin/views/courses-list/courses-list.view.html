@@ -1,7 +1,15 @@
 <div class="mb-3">
-  <button mat-raised-button color="primary" routerLink="./nuevo" >
+  <button mat-raised-button color="primary" routerLink="./nuevo" class="mr-2" >
     <mat-icon>add</mat-icon>
     Nuevo
+  </button>
+
+  <button mat-raised-button color="primary" (click)="reportPdf()" class="mr-2">
+    Exportar PDF
+  </button>
+
+  <button mat-raised-button color="primary" (click)="reportExcel()" >
+    Exportar Excel
   </button>
 </div>
 

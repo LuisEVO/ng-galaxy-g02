@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'projects/app-project-courses/src/environments/environment';
 import { tap } from 'rxjs/operators';
 import { Credentials } from '../interfaces/credentials.interface';
+import { RefreshToken } from '../interfaces/refresh-token.interface';
 import { SignInForm } from '../interfaces/sign-in-form.interface';
 import { SessionService } from './session.service';
 
@@ -20,5 +21,10 @@ export class AuthHttpService {
   signIn(form: SignInForm) {
     return this.http.post<Credentials>(this.enpoint, form)
       .pipe(tap(credential => this.session.create(credential)))
+  }
+
+  refreshToken(refresh: string) {
+    return this.http.post<RefreshToken>(`${this.enpoint}refresh/`, { refresh })
+      .pipe(tap(res => this.session.update(res)))
   }
 }

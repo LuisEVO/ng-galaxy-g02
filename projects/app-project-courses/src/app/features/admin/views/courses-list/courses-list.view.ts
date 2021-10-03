@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Course } from 'projects/app-project-courses/src/app/common/models/course.model';
 import { CoursesHttpService } from 'projects/app-project-courses/src/app/common/services/courses-http.service';
+import { ExcelService } from 'projects/app-project-courses/src/app/common/services/excel.service';
+import { PdfService } from 'projects/app-project-courses/src/app/common/services/pdf.service';
 import { merge } from 'rxjs';
 import { debounceTime, filter, startWith } from 'rxjs/operators';
 import { CourseConfirmRemoveComponent } from '../../common/components/course-confirm-remove/course-confirm-remove.component';
@@ -32,6 +34,8 @@ export class CoursesListView implements OnInit {
     private store: Store,
     private router: Router,
     private route: ActivatedRoute,
+    private pdfService: PdfService,
+    private excelService: ExcelService,
   ) { }
 
   ngOnInit(): void {
@@ -88,6 +92,24 @@ export class CoursesListView implements OnInit {
 
   goToEdit(courseId: number) {
     this.router.navigate(['./', courseId, 'editar'], { relativeTo: this.route, queryParams: { pageIndex: this.paginator.pageIndex } })
+  }
+
+  reportPdf() {
+    const headers = ['Nombre', 'Inicio', 'Nivel', 'Horario'];
+    const rows = this.dataSource.map(item => [item.name, item.startDateFormat, item.levelText, item.schedule]);
+    this.pdfService.generateTable(headers, rows, {
+      pageOrientation: 'landscape'
+    });
+  }
+
+  reportExcel() {
+    const headers = ['Nombre', 'Inicio', 'Nivel', 'Horario'];
+    const rows = this.dataSource.map(item => [item.name, item.startDateFormat, item.levelText, item.schedule]);
+    this.excelService.generateTable(headers, rows, {
+      workbookName: 'listado-cursos',
+      worksheetName: 'Lista de Cursos',
+      columnsWidth: [70, 25, 25, 30]
+    });
   }
 
 }

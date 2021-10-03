@@ -1,8 +1,23 @@
-<mat-toolbar color="primary" class="mat-elevation-z4">
-  <button mat-icon-button (click)="drawer.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  Admin
+<mat-toolbar color="primary" class="flex justify-between mat-elevation-z4">
+  <div class="flex items-center">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    Admin
+  </div>
+  
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+      {{ session.user?.fullName }}
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Cerrar Sesión
+      </button>
+    </mat-menu>
+  </div>
 </mat-toolbar>
 
 <mat-drawer-container>
