@@ -67,7 +67,7 @@ export class CoursesListView implements OnInit {
         this.dataSource = paginableCourses.results;
         this.dataLength = paginableCourses.count;
         this.store.dispatch(new CoursesAdminAction.Populate(paginableCourses.results))
-      } 
+      }
     )
   }
 

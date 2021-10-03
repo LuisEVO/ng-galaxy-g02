@@ -21,6 +21,12 @@ interface CoursesAdminStateModel {
 })
 @Injectable()
 export class CoursesAdminState {
+  /*
+  @Selector()
+  static courses(state: CoursesAdminStateModel): Course[] {
+    return state.courses
+  }
+  */
 
   @Selector()
   static courseSelected(state: CoursesAdminStateModel): Course | undefined {
