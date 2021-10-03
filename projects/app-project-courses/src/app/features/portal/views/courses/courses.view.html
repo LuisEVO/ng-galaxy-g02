@@ -1,4 +1,6 @@
-<div class="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+<!--
+  <div class="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  
   <ng-container *ngIf="loading; else loaded">
     <app-course-item-skeleton *ngFor="let item of [].constructor(20)"></app-course-item-skeleton>
   </ng-container>
@@ -7,4 +9,19 @@
       [course]="course"
       (goDetail)="goDetail(course.id)"></app-course-item>
   </ng-template>
+</div>
+-->
+
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="load()">
+
+  <div class="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <app-course-item *ngFor="let course of courses"
+      [course]="course"
+      (goDetail)="goDetail(course.id)"></app-course-item>
+  </div>
+
 </div>

@@ -6,6 +6,7 @@ import { PortalComponent } from './portal.component';
 import { CoursesView } from './views/courses/courses.view';
 import { CourseDetailView } from './views/course-detail/course-detail.view';
 import { PortalCommonModule } from './common/common.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PortalCommonModule } from './common/common.module';
   imports: [
     CommonModule,
     PortalRoutingModule,
-    PortalCommonModule
+    PortalCommonModule,
+    InfiniteScrollModule
   ]
 })
 export class PortalModule { }
