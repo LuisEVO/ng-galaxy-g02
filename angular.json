@@ -1391,7 +1391,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/app-project-shopping-card/src/favicon.ico",
-              "projects/app-project-shopping-card/src/assets"
+              "projects/app-project-shopping-card/src/assets",
+              "projects/app-project-shopping-card/src/_redirects"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
