@@ -11,6 +11,7 @@
     "build:todos": "ng build --project app-project-todos",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:courses": "ng test --project app-project-courses --watch false --code-coverage true --browsers ChromeHeadless",
     "test:todos": "ng test --project app-project-todos --watch false --code-coverage true --browsers ChromeHeadless",
     "mock": "json-server mock/db.json --watch"
   },
