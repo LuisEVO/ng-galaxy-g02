@@ -5,6 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:courses": "ng build --project app-project-courses",
+    "build:rickandmorty": "ng build --project app-project-rickandmorty",
+    "build:shopping-card": "ng build --project app-project-shopping-card",
+    "build:todos": "ng build --project app-project-todos",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "mock": "json-server mock/db.json --watch"
