@@ -1,17 +1,35 @@
 {
-  "hosting": {
-    "predeploy": "npm install && npm run build:shopping-card",
-    "public": "dist/app-project-shopping-card",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "target": "todos-app",
+      "predeploy": "npm install && npm run build:todos",
+      "public": "dist/app-project-todos",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "predeploy": "npm install && npm run build:shopping-card",
+      "public": "dist/app-project-shopping-card",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
 }

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "galaxy-training"
+  },
+  "targets": {
+    "galaxy-training": {
+      "hosting": {
+        "todos-app": [
+          "galaxy-todos"
+        ]
+      }
+    }
   }
 }
