@@ -1075,7 +1075,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/app-project-courses/src/favicon.ico",
-              "projects/app-project-courses/src/assets"
+              "projects/app-project-courses/src/assets",
+              "projects/app-project-courses/src/staticwebapp.config.json"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
