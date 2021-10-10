@@ -17,6 +17,7 @@
       ]
     },
     {
+      "target": "shopping-card-app",
       "predeploy": "npm install && npm run build:shopping-card",
       "public": "dist/app-project-shopping-card",
       "ignore": [

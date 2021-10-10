@@ -7,6 +7,9 @@
       "hosting": {
         "todos-app": [
           "galaxy-todos"
+        ],
+        "shopping-card-app": [
+          "galaxy-training"
         ]
       }
     }
