@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 900px;
+  margin: auto;
+  padding-top: 32px;
+
+  .character {
+    flex: 0 0 180px;
+    cursor: pointer;
+  }
+}

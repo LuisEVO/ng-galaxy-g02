@@ -4,7 +4,7 @@
     "analytics": "840cf90f-62a4-452a-9c1c-5f7f8bdf6cb1"
   },
   "version": 1,
-  "newProjectRoot": "apps",
+  "newProjectRoot": "projects",
   "projects": {
     "app-s01-data-binding": {
       "projectType": "application",
@@ -1063,6 +1063,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "exceljs",
+              "pdfmake/build/pdfmake"
+            ],
             "outputPath": "dist/app-project-courses",
             "index": "projects/app-project-courses/src/index.html",
             "main": "projects/app-project-courses/src/main.ts",
@@ -1145,6 +1149,321 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/app-project-courses/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "app-project-rickandmorty": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/app-project-rickandmorty",
+      "sourceRoot": "projects/app-project-rickandmorty/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-project-rickandmorty",
+            "index": "projects/app-project-rickandmorty/src/index.html",
+            "main": "projects/app-project-rickandmorty/src/main.ts",
+            "polyfills": "projects/app-project-rickandmorty/src/polyfills.ts",
+            "tsConfig": "projects/app-project-rickandmorty/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-rickandmorty/src/favicon.ico",
+              "projects/app-project-rickandmorty/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-rickandmorty/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-project-rickandmorty/src/environments/environment.ts",
+                  "with": "projects/app-project-rickandmorty/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-project-rickandmorty:build:production"
+            },
+            "development": {
+              "browserTarget": "app-project-rickandmorty:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-project-rickandmorty:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-project-rickandmorty/src/test.ts",
+            "polyfills": "projects/app-project-rickandmorty/src/polyfills.ts",
+            "tsConfig": "projects/app-project-rickandmorty/tsconfig.spec.json",
+            "karmaConfig": "projects/app-project-rickandmorty/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-rickandmorty/src/favicon.ico",
+              "projects/app-project-rickandmorty/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-rickandmorty/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "app-project-todos": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/app-project-todos",
+      "sourceRoot": "projects/app-project-todos/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-project-todos",
+            "index": "projects/app-project-todos/src/index.html",
+            "main": "projects/app-project-todos/src/main.ts",
+            "polyfills": "projects/app-project-todos/src/polyfills.ts",
+            "tsConfig": "projects/app-project-todos/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-todos/src/favicon.ico",
+              "projects/app-project-todos/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-todos/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-project-todos/src/environments/environment.ts",
+                  "with": "projects/app-project-todos/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-project-todos:build:production"
+            },
+            "development": {
+              "browserTarget": "app-project-todos:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-project-todos:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-project-todos/src/test.ts",
+            "polyfills": "projects/app-project-todos/src/polyfills.ts",
+            "tsConfig": "projects/app-project-todos/tsconfig.spec.json",
+            "karmaConfig": "projects/app-project-todos/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-todos/src/favicon.ico",
+              "projects/app-project-todos/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-todos/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "app-project-shopping-card": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/app-project-shopping-card",
+      "sourceRoot": "projects/app-project-shopping-card/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-project-shopping-card",
+            "index": "projects/app-project-shopping-card/src/index.html",
+            "main": "projects/app-project-shopping-card/src/main.ts",
+            "polyfills": "projects/app-project-shopping-card/src/polyfills.ts",
+            "tsConfig": "projects/app-project-shopping-card/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-shopping-card/src/favicon.ico",
+              "projects/app-project-shopping-card/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-shopping-card/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-project-shopping-card/src/environments/environment.ts",
+                  "with": "projects/app-project-shopping-card/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-project-shopping-card:build:production"
+            },
+            "development": {
+              "browserTarget": "app-project-shopping-card:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-project-shopping-card:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-project-shopping-card/src/test.ts",
+            "polyfills": "projects/app-project-shopping-card/src/polyfills.ts",
+            "tsConfig": "projects/app-project-shopping-card/tsconfig.spec.json",
+            "karmaConfig": "projects/app-project-shopping-card/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/app-project-shopping-card/src/favicon.ico",
+              "projects/app-project-shopping-card/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/app-project-shopping-card/src/styles.scss"
             ],
             "scripts": []
           }

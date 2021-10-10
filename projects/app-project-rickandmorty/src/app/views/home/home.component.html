@@ -1,0 +1,14 @@
+<mat-card class="character" *ngFor="let character of characters$ | async" [routerLink]="['personaje', character.id]">
+  <img mat-card-image [src]="character.image" alt="avatar" />
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">{{ character.name }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">{{ character.gender }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">
+        <mat-chip-list><mat-chip color="primary" selected>{{ character.status }}</mat-chip></mat-chip-list>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

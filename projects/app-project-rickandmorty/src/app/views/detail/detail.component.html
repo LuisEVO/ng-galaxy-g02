@@ -1,0 +1,23 @@
+<div class="character mat-elevation-z8" *ngIf="character$ | async as character">
+  <div>
+    <img [src]="character.image" alt="avatar" />
+  </div>
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Name: {{ character.name }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Status: {{ character.status }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Gender: {{ character.gender }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Species: {{ character.species }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Type: {{ character.type }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Origin: {{ character.origin.name }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">Location: {{ character.location.name }}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+</div>
